@@ -15,8 +15,15 @@ DEFINES += QT_DEPRECATED_WARNINGS
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
-        commandparser.cpp \
+        action_controller.cpp \
+        actions.cpp \
+        command_builder.cpp \
+        command_controller.cpp \
+        command_parser.cpp \
+        commands.cpp \
+        iaction.cpp \
         icommand.cpp \
+        iobject.cpp \
         main.cpp
 
 # Default rules for deployment.
@@ -25,5 +32,17 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    commandparser.h \
-    icommand.h
+    action_controller.h \
+    actions.h \
+    basic_types.h \
+    command_builder.h \
+    command_controller.h \
+    command_parser.h \
+    command_type_enums.h \
+    command_types.h \
+    commands.h \
+    iaction.h \
+    icommand.h \
+    iobject.h \
+    token.h \
+    utility.h
