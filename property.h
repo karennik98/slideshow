@@ -6,14 +6,21 @@
 
 struct PropertyBase
 {
-    ID id;
-    Position pos;
-    Dimension dim;
+    PropertyBase(Position pos, Dimension dim, ID id)
+        : mPos(pos)
+        , mDim(dim)
+        , mId(id)
+    {}
+    Position mPos;
+    Dimension mDim;
+    ID mId;
 };
 
 struct ShapeProperty : public PropertyBase
 {
-
+    ShapeProperty(Position pos, Dimension dim, ID id)
+        : PropertyBase(pos, dim, id)
+    {}
 };
 
 struct TextProperty : public PropertyBase

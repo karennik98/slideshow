@@ -8,22 +8,27 @@
 
 #include <QVector>
 
+#include <memory>
+
 class IShape;
 
 class ObjectBase : public IObject
 {
 public:
-    ID getID() const { return mProperty->id; }
+    ObjectBase(std::unique_ptr<PropertyBase> property)
+        : mProperty(std::move(property))
+    {}
+    ID getID() const { return mProperty->mId; }
 protected:
-    PropertyBase* mProperty;
+    std::unique_ptr<PropertyBase> mProperty;
 };
 
 class Object : public ObjectBase
 {
 public:
-    Object();
+    Object(std::unique_ptr<PropertyBase> property, std::unique_ptr<IShape> shape);
 private:
-    IShape* mShape;
+    std::unique_ptr<IShape> mShape;
 };
 
 class Group : public ObjectBase

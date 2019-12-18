@@ -3,6 +3,7 @@
 
 #include "token.h"
 #include "command_type_enums.h"
+#include "declaration.h"
 
 #include <QVector>
 #include <QPair>
@@ -20,11 +21,12 @@ public:
         : mBegin(tokens.begin())
         , mEnd(tokens.end())
     {}
-    ICommand* build();
+   ICommand* build();
 private:
     CommandType getCommandType() const;
-    QPair<Position, Dimension> getAddRectCommandArgs();
+    std::tuple<Position, Dimension, ID> getAddRectCommandArgs();
     QPair<int, int> getIntegerValues();
+    ID getIDValue();
 
     bool isCommandType() const;
 

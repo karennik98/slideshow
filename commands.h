@@ -3,11 +3,12 @@
 
 #include "icommand.h"
 #include "basic_types.h"
+#include "declaration.h"
 
 class AddRectCommand : public ICommand
 {
 public:
-    AddRectCommand(Position pos, Dimension dim);
+    AddRectCommand(Position pos, Dimension dim, ID id);
     virtual void execute() override;
 };
 

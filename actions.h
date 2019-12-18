@@ -11,10 +11,11 @@ class SlideShow;
 class AddRectAction : public IAction
 {
 public:
-    virtual IAction* apply(/*IObject* object*/) override;
+    AddRectAction(std::shared_ptr<Slide> slide, std::shared_ptr<SlideShow> slideshow);
+    virtual IAction* apply(IObject* object) override;
 private:
-    std::shared_ptr<Slide*> mSlide;
-    std::shared_ptr<SlideShow*> mSlideShow;
+    std::shared_ptr<Slide> mSlide;
+    std::shared_ptr<SlideShow> mSlideShow;
 };
 
 #endif // ACTIONS_H
