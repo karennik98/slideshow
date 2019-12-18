@@ -24,7 +24,10 @@ SOURCES += \
         iaction.cpp \
         icommand.cpp \
         iobject.cpp \
-        main.cpp
+        main.cpp \
+        object.cpp \
+        slide.cpp \
+        slideshow.cpp
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
@@ -41,8 +44,13 @@ HEADERS += \
     command_type_enums.h \
     command_types.h \
     commands.h \
+    declaration.h \
     iaction.h \
     icommand.h \
     iobject.h \
+    object.h \
+    property.h \
+    slide.h \
+    slideshow.h \
     token.h \
     utility.h
