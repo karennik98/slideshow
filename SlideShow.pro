@@ -1,6 +1,7 @@
 QT -= gui
 
 CONFIG += c++11 console
+CONFIG += c++17 console
 CONFIG -= app_bundle
 
 # The following define makes your compiler emit warnings if you use
@@ -17,6 +18,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         action_controller.cpp \
         actions.cpp \
+        application.cpp \
         command_builder.cpp \
         command_controller.cpp \
         command_parser.cpp \
@@ -24,8 +26,11 @@ SOURCES += \
         iaction.cpp \
         icommand.cpp \
         iobject.cpp \
+        ishape.cpp \
         main.cpp \
         object.cpp \
+        shape_library.cpp \
+        shapes.cpp \
         slide.cpp \
         slideshow.cpp
 
@@ -37,6 +42,7 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 HEADERS += \
     action_controller.h \
     actions.h \
+    application.h \
     basic_types.h \
     command_builder.h \
     command_controller.h \
@@ -48,8 +54,11 @@ HEADERS += \
     iaction.h \
     icommand.h \
     iobject.h \
+    ishape.h \
     object.h \
     property.h \
+    shape_library.h \
+    shapes.h \
     slide.h \
     slideshow.h \
     token.h \

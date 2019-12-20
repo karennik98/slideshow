@@ -4,27 +4,41 @@
 #include "basic_types.h"
 #include "declaration.h"
 
-struct PropertyBase
+class PropertyBase
 {
+public:
     PropertyBase(Position pos, Dimension dim, ID id)
         : mPos(pos)
         , mDim(dim)
         , mId(id)
     {}
+    ~PropertyBase() {}
+public:
+    void setPosition(Position pos)   { mPos = pos; }
+    void setDimension(Dimension dim) { mDim = dim; }
+    void setId(ID id)                { mId = id;   }
+
+    Position getPosition() const   { return mPos; }
+    Dimension getDimension() const { return mDim; }
+    ID getID() const               { return mId;  }
+
+private:
     Position mPos;
     Dimension mDim;
     ID mId;
 };
 
-struct ShapeProperty : public PropertyBase
+class ShapeProperty : public PropertyBase
 {
+public:
     ShapeProperty(Position pos, Dimension dim, ID id)
         : PropertyBase(pos, dim, id)
     {}
 };
 
-struct TextProperty : public PropertyBase
+class TextProperty : public PropertyBase
 {
+public:
     bool bold;
     bool italic;
 };
