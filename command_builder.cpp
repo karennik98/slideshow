@@ -14,19 +14,27 @@ ICommand* CommandBuilder::build()
         CommandType type = getCommandType();
 
         switch (type) {
-        case CommandType::add_rect:
-        {
-            eat();
-            std::tuple<Position, Dimension, ID> args = getAddRectCommandArgs();
-            //std::unique_ptr<ICommand> cmd {new AddRectCommand(args.first, args.second)}; // make_unique dont work
-            //return cmd;
-            return new AddRectCommand(std::get<0>(args), std::get<1>(args), std::get<2>(args));
-        }
-        case CommandType::unknown_type:
-            return {}; // TODO meybe remove unknown_type
+            case CommandType::add_rect:
+            {
+                eat();
+                std::tuple<Position, Dimension, ID> args = getAddRectCommandArgs();
+                //std::unique_ptr<ICommand> cmd {new AddRectCommand(args.first, args.second)}; // make_unique dont work
+                //return cmd;
+                return new AddRectCommand(std::get<0>(args), std::get<1>(args), std::get<2>(args));
+            }
+            case CommandType::unknown_type:
+                return {}; // TODO meybe remove unknown_type
         }
     }
     return {};//TODO
+}
+
+ICommand* CommandBuilder::build(const QVector<Token>& tokens)
+{
+    mBegin = tokens.cbegin();
+    mEnd = tokens.cend();
+
+    return build();
 }
 
 
@@ -103,7 +111,7 @@ QPair<int, int> CommandBuilder::getIntegerValues()
             }
         }
 
-        val_1= w.toInt();
+        val_1 = w.toInt();
         val_2 = h.toInt();
     }
     else

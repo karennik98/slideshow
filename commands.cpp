@@ -2,6 +2,8 @@
 #include "iobject.h"
 #include "object.h"
 #include "property.h"
+#include "iaction.h"
+#include "actions.h"
 #include "shapes.h"
 
 #include <QDebug>
@@ -13,5 +15,9 @@ AddRectCommand::AddRectCommand(Position pos, Dimension dim, ID id) : ICommand("a
     //TODO create object, call AddRecAction
     //std::unique_ptr<IObject> object (new Object(std::unique_ptr<ShapeProperty>(pos,dim,id), std::unique_ptr<Rect>()));
     IObject* object = new Object(new ShapeProperty(pos, dim, id), new Rect);
+
+    std::unique_ptr<IAction> action { new AddRectAction { mSlide } };
+
+    action->apply(object);
 
 }

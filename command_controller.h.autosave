@@ -15,6 +15,8 @@ class CommandController
 {
 public:
     CommandController();
+    void registerCommands();
+    void unregisterCommands();
     void execute(const QString& line);
 private:
     QMap<QString, std::unique_ptr<ICommand>> mCommands;

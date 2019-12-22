@@ -1,6 +1,7 @@
 #include "command_controller.h"
 #include "command_parser.h"
 #include "command_builder.h"
+#include "commands.h"
 
 CommandController::CommandController()
     : mParser(std::move(new CommandParser))
@@ -12,5 +13,8 @@ CommandController::CommandController()
 
 void CommandController::execute(const QString& line)
 {
-    m
+    QVector<Token> tokens = mParser->parse(line);
+    
+    ICommand* command = mCommandBuilder->build(tokens);
+    command->execute();
 }

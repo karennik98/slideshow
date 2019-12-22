@@ -17,6 +17,7 @@ public:
         , mEnd { line.cend()   }
     {}
     QVector<Token> parse();
+    QVector<Token> parse(const QString& line);
 private:
     bool isAtEnd() const;
     bool isCommandToken() const;

@@ -22,6 +22,14 @@ QVector<Token> CommandParser::parse()
     return tokens;
 }
 
+QVector<Token> CommandParser::parse(const QString& line)
+{
+    mChar = line.cbegin();
+    mEnd = line.cend();
+
+    return parse();
+}
+
 Token CommandParser::getNextToken()
 {
     if(isCommandToken())

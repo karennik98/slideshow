@@ -17,11 +17,13 @@ class ICommand;
 class CommandBuilder
 {
 public:
+    CommandBuilder() = default;
     CommandBuilder(const QVector<Token>& tokens)
         : mBegin(tokens.begin())
         , mEnd(tokens.end())
     {}
    ICommand* build();
+   ICommand* build(const QVector<Token>& tokens);
 private:
     CommandType getCommandType() const;
     std::tuple<Position, Dimension, ID> getAddRectCommandArgs();
