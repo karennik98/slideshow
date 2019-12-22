@@ -1,17 +1,18 @@
 #include "object.h"
 #include "iobject.h"
 
-//Object::Object(std::unique_ptr<PropertyBase> property, std::unique_ptr<IShape> shape)
-//    : ObjectBase(std::move(property))
-//    , mShape(std::move(shape))
-//{
-//}
+Object::Object(std::unique_ptr<PropertyBase> property, std::unique_ptr<IShape> shape)
+    : ObjectBase(std::move(property))
+    , mShape(std::move(shape))
+{
 
-Object::Object(PropertyBase* property, IShape* shape)
-    : ObjectBase(property)
-    , mShape(shape)
+}
 
-{}
+//Object::Object(PropertyBase* property, IShape* shape)
+//    : ObjectBase(property)
+//    , mShape(shape)
+
+//{}
 
 void ObjectBase::move(Position pos)
 {

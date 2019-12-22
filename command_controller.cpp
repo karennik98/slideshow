@@ -9,7 +9,7 @@
 
 CommandController::CommandController()
     : mParser(std::move(new CommandParser))
-    , mArgsBuilder(std::move(new ArgsBuilder));
+    , mArgsBuilder(std::move(new ArgsBuilder))
    // , mCommandBuilder(std::move(new CommandBuilder))
 {
 
@@ -26,7 +26,7 @@ void CommandController::execute(const QString& line)
 {
   QVector<Token> tokens = mParser->parse(line);
 
-  std::any args = argumentBuilder.getArgs(tokens);
+  std::any args = mArgsBuilder->getArgs(tokens);
 
   const auto command = std::find(mCommands.begin(), mCommands.end(), hash_function(tokens[0].name.toStdString().c_str()));
 

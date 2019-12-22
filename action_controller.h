@@ -3,15 +3,17 @@
 
 #include <QStack>
 
+#include <memory>
+
 class IAction;
 
 class ActionController
 {
 public:
-    ActionController();
+    ActionController() = default;
+    void doAction(std::unique_ptr<IAction> action);
     void undo();
     void redo();
-    void action(); // TODO function name
 private:
     QStack<IAction*> mUndoStack;
     QStack<IAction*> mRedoStack;

@@ -1,6 +1,6 @@
 #include "slide.h"
 
-Slide::Slide()
+void Slide::addObject(std::unique_ptr<IObject> object)
 {
-
+  mObjects.push_back(std::move(object));
 }

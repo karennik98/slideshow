@@ -6,6 +6,7 @@ class IShape
 {
 public:
     IShape();
+    virtual ~IShape() {}
 };
 
 #endif // ISHAPE_H

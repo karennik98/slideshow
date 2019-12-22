@@ -12,7 +12,7 @@ public:
         , mDim(dim)
         , mId(id)
     {}
-    ~PropertyBase() {}
+    virtual ~PropertyBase() {}
 public:
     void setPosition(Position pos)   { mPos = pos; }
     void setDimension(Dimension dim) { mDim = dim; }
@@ -21,7 +21,6 @@ public:
     Position getPosition() const   { return mPos; }
     Dimension getDimension() const { return mDim; }
     ID getID() const               { return mId;  }
-
 private:
     Position mPos;
     Dimension mDim;

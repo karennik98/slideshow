@@ -1,6 +1,8 @@
 #include "action_controller.h"
+#include "iaction.h"
+#include "actions.h"
 
-ActionController::ActionController()
+void ActionController::doAction(std::unique_ptr<IAction> action)
 {
-
+  mUndoStack.push(action->apply());
 }

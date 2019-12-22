@@ -1,5 +1,7 @@
 #ifndef COMMANDCONTROLLER_H
 #define COMMANDCONTROLLER_H
+
+#include "args_builder.hpp"
 #include "command_type_enums.h"
 
 #include <QVector>
@@ -21,7 +23,8 @@ public:
 private:
     std::unordered_map<CommandType, std::unique_ptr<ICommand>> mCommands;
     std::unique_ptr<CommandParser> mParser;
-    std::unique_ptr<CommandBuilder> mCommandBuilder;
+    std::unique_ptr<ArgsBuilder> mArgsBuilder;
+    //std::unique_ptr<CommandBuilder> mCommandBuilder;
 };
 
 #endif // COMMANDCONTROLLER_H

@@ -7,6 +7,7 @@ class IObject
 {
 public:
     IObject();
+
     virtual void move(Position pos) = 0;
     virtual void resize(Dimension dim) = 0;
     virtual void rotate(double angle) = 0;

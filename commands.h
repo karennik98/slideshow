@@ -18,5 +18,16 @@ private:
     std::shared_ptr<Slide> mSlide;
 };
 
+/////////////////////////////////////////////////////////
+
+class RemoveRectCommand : public ICommand
+{
+public:
+    RemoveRectCommand();
+    virtual void execute(std::any args) override;
+private:
+    std::shared_ptr<Slide> mSlide;
+};
+
 
 #endif // COMMANDS_H
