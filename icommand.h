@@ -3,6 +3,8 @@
 
 #include <QString>
 
+#include <any>
+
 class ICommand
 {
 public:
@@ -10,7 +12,7 @@ public:
         : mName(name)
     {}
     QString getName();
-    virtual void execute() = 0;
+    virtual void execute(std::any args) = 0;
 protected:
     QString mName;
 };

@@ -1,11 +1,12 @@
 #ifndef COMMANDCONTROLLER_H
 #define COMMANDCONTROLLER_H
+#include "command_type_enums.h"
 
 #include <QVector>
-#include <QMap>
 #include <QString>
 
 #include <memory>
+#include <unordered_map>
 
 class ICommand;
 class CommandParser;
@@ -15,9 +16,10 @@ class CommandController
 {
 public:
     CommandController();
+    void registerCommand();
     void execute(const QString& line);
 private:
-    QMap<QString, std::unique_ptr<ICommand>> mCommands;
+    std::unordered_map<CommandType, std::unique_ptr<ICommand>> mCommands;
     std::unique_ptr<CommandParser> mParser;
     std::unique_ptr<CommandBuilder> mCommandBuilder;
 };

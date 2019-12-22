@@ -12,8 +12,8 @@ class Slide;
 class AddRectCommand : public ICommand
 {
 public:
-    AddRectCommand(Position pos, Dimension dim, ID id);
-    virtual void execute() override;
+    AddRectCommand();
+    virtual void execute(std::any args) override;
 private:
     std::shared_ptr<Slide> mSlide;
 };

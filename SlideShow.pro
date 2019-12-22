@@ -19,6 +19,7 @@ SOURCES += \
         action_controller.cpp \
         actions.cpp \
         application.cpp \
+        args_builder.cpp \
         command_builder.cpp \
         command_controller.cpp \
         command_parser.cpp \
@@ -43,6 +44,7 @@ HEADERS += \
     action_controller.h \
     actions.h \
     application.h \
+    args_builder.hpp \
     basic_types.h \
     command_builder.h \
     command_controller.h \
