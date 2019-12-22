@@ -17,10 +17,13 @@ public:
     Application(int argv, char* argc[]);
     bool run();
 private:
+    QString readLine() const;
+private:
     std::unique_ptr<CommandController> mCommandController;
     std::unique_ptr<ActionController> mActionController;
     std::unique_ptr<SlideShow> mSlideShow;
     std::unique_ptr<ShapeLibrary> mShapeLibrary;
+    ID mCurrentShape;
 };
 
 #endif // APPLICATION_H

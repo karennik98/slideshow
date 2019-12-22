@@ -31,6 +31,5 @@ void CommandController::execute(const QString& line)
   const auto command = std::find(mCommands.begin(), mCommands.end(), hash_function(tokens[0].name.toStdString().c_str()));
 
   command->second->execute(args);
-
-//  mCommands.find(hash_function(tokens[0].name.toStdString().c_str()));
+  
 }

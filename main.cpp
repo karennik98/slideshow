@@ -5,6 +5,7 @@
 
 #include "command_parser.h"
 #include "token.h"
+#include "application.h"
 
 int main(int argc, char *argv[])
 {
@@ -20,6 +21,6 @@ int main(int argc, char *argv[])
 
 //    return a.exec();
 
-    // Application app(int argc, char* argv[])
-    // app.run();
+     Application app(int argc, char* argv[]);
+     app.run();
 }

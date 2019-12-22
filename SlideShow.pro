@@ -30,6 +30,7 @@ SOURCES += \
         ishape.cpp \
         main.cpp \
         object.cpp \
+        shape_factory.cpp \
         shape_library.cpp \
         shapes.cpp \
         slide.cpp \
@@ -59,7 +60,9 @@ HEADERS += \
     ishape.h \
     object.h \
     property.h \
+    shape_factory.hpp \
     shape_library.h \
+    shape_names_enum.hpp \
     shapes.h \
     slide.h \
     slideshow.h \

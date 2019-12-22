@@ -24,7 +24,7 @@ bool Application::run()
     while (true)
     {
         QString line = readLine();
+        // TODO need pass current slide
         mCommandController->execute(line);
-        //mCommandController->inputHandler(command);
     }
 }
